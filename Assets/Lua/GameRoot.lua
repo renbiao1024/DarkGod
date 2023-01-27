@@ -9,19 +9,17 @@ GameRoot = {}
 function GameRoot:Init()
     GameRootInst = GameObject.Find("GameRoot")
     --服务模块初始化
-    ResSvcInst = LuaComponent.Add(GameRootInst, ResSvc)
-    ResSvcInst:InitSvc()
+    LuaComponent.Add(GameRootInst, ResSvc)
 
     --业务系统初始化
-    LoginSysInst = LuaComponent.Add(GameRootInst, LoginSys)
-    LoginSysInst:InitSys()
+    LuaComponent.Add(GameRootInst, LoginSys)
 
     --UI初始化
     UIs.LoadingWndUI = GameObject.Find("GameRoot/Canvas/LoadingWnd")
     LuaComponent.Add(UIs.LoadingWndUI, LoadingWnd)
 
     --进入登陆场景 加载UI
-    LoginSysInst:EnterLogin()
+    LoginSys:EnterLogin()
 end
 
 

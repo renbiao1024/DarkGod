@@ -17,7 +17,7 @@ end
 
 function LoginSys:EnterLogin()
     UIs.LoadingWndUI.gameObject:SetActive(true)
-
-    ResSvcInst:AsyncLoadScene(Scenes.SceneLogin)
+    LoadingWnd:InitWnd()
+    ResSvc:AsyncLoadScene(Scenes.SceneLogin)
 end
 
