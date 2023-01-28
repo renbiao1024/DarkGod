@@ -1,6 +1,8 @@
-LoadingWnd = {
-    name = "LoadingWnd"
-}
+WindowRoot:subClass("LoadingWnd")
+
+-- LoadingWnd = {
+--     name = "LoadingWnd"
+-- }
 
 LoadingWnd.txtTips = nil
 LoadingWnd.imgFG = nil
@@ -15,6 +17,7 @@ function LoadingWnd:ctor(obj)
 end
 
 function LoadingWnd:InitWnd()
+    self.base.InitWnd(self)
     self.txtTips = GameObject.Find("GameRoot/Canvas/LoadingWnd/BottomPin/txtTips"):GetComponent(typeof(Text))
     self.imgFG = GameObject.Find("GameRoot/Canvas/LoadingWnd/BottomPin/loadingfg"):GetComponent(typeof(Image))
     self.imgPoint = GameObject.Find("GameRoot/Canvas/LoadingWnd/BottomPin/loadingfg/imgPoint"):GetComponent(typeof(Image))
@@ -32,4 +35,9 @@ function LoadingWnd:SetProgress(prg)
     self.imgFG.fillAmount = prg
     local posX =  -545 + prg * self.fgWidth
     self.imgPoint:GetComponent(typeof(RectTransform)).anchoredPosition = Vector2(posX, 0)
+end
+
+
+function LoadingWnd:SetWndState(go, isActive)
+    self.base.SetWndState(self, go, isActive)
 end

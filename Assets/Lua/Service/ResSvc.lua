@@ -6,6 +6,7 @@ ResSvc = {
 
 ResSvc.isPrgFinish = false
 ResSvc.sceneAsync = nil
+ResSvc.loaded = nil
 
 function ResSvc:InitSvc()
     print("ResSvc Init")
@@ -18,27 +19,31 @@ function ResSvc:ctor(obj)
     return o
 end
 
-function ResSvc:AsyncLoadScene(sceneName)
+function ResSvc:AsyncLoadScene(sceneName, loaded)
+    UIs.LoadingWndUI.gameObject:SetActive(true)
+    LoadingWnd:InitWnd()
     self.sceneAsync = SceneManager.LoadSceneAsync(sceneName)
+    self.loaded = loaded
+end
+
+function ResSvc:Update()
+    --print("ResSvc:Update")
+    if ResSvc.isPrgFinish == false then
+        ResSvc:UpdatePrg()
+    end
 end
 
 function ResSvc:UpdatePrg()
     local val = self.sceneAsync.progress
     LoadingWnd:SetProgress(val)
     if val == 1 then
+        if self.loaded ~= nil then
+            self.loaded()
+        end
         self.isPrgFinish = true
         self.sceneAsync = nil
+        self.loaded = nil
         UIs.LoadingWndUI.gameObject:SetActive(false)
-    end
-end
-
--- function ResSvc:Awake(gameObject)
---     print("GameObject "..gameObject.name)end
-
-function ResSvc:Update()
-    --print("ResSvc:Update")
-    if ResSvc.isPrgFinish == false then
-        ResSvc:UpdatePrg()
     end
 end
 
