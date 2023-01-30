@@ -1,0 +1,31 @@
+AudioSvc = {}
+
+AudioSvc.bgAudio = nil
+AudioSvc.uiAudio = nil
+
+function AudioSvc:ctor(obj)
+    local o = {}
+    setmetatable(o,self)
+    self.__index = self
+    return o
+end
+
+function AudioSvc:InitSvc()
+    self.bgAudio = GameObject.Find("GameRoot/BGAudio"):GetComponent(typeof(AudioSource))
+    self.uiAudio = GameObject.Find("GameRoot/UIAudio"):GetComponent(typeof(AudioSource))
+end
+
+function AudioSvc:PlayBGMusic(name, isLoop)
+    local audio = ResSvc:LoadAudio("ResAudio/" .. name, true)
+    if IsNull(self.bgAudio.clip) or self.bgAudio.name ~= audio.name then
+        self.bgAudio.clip = audio
+        self.bgAudio.loop = isLoop
+        self.bgAudio:Play()
+    end
+end
+
+function AudioSvc:PlayUIAudio(name)
+    local audio = ResSvc:LoadAudio("ResAudio/".. name, true)
+    self.uiAudio.clip = audio
+    self.uiAudio:Play()
+end

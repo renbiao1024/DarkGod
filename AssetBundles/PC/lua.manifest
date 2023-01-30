@@ -1,0 +1,28 @@
+ManifestFileVersion: 0
+CRC: 676520546
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 41b439446879288eb13488d99b0ab3e5
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5ad585dd02dfb5016c0dad519eab8f49
+HashAppended: 0
+ClassTypes:
+- Class: 49
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/LuaTxt/UIWindow/LoadingWnd.lua.txt
+- Assets/LuaTxt/UIWindow/WindowRoot.lua.txt
+- Assets/LuaTxt/Service/AudioSvc.lua.txt
+- Assets/LuaTxt/SplitTools.lua.txt
+- Assets/LuaTxt/System/LoginSys.lua.txt
+- Assets/LuaTxt/GameRoot.lua.txt
+- Assets/LuaTxt/Service/ResSvc.lua.txt
+- Assets/LuaTxt/JsonUtility.lua.txt
+- Assets/LuaTxt/CommonNames.lua.txt
+- Assets/LuaTxt/UIWindow/LoginWnd.lua.txt
+- Assets/LuaTxt/Main.lua.txt
+- Assets/LuaTxt/BaseObject.lua.txt
+Dependencies: []

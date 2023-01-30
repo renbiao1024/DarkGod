@@ -1469,7 +1469,12 @@ namespace CSObjectWrapEditor
             ReflectionUse = new List<Type>();
 
             BlackList = new List<List<string>>()
-            {
+            {            
+                new List<string>(){"UnityEngine.Light", "shadowRadius"},
+                new List<string>(){"UnityEngine.Light", "SetLightDirty"},
+                new List<string>(){"UnityEngine.Light", "shadowAngle"},
+                new List<string>(){"UnityEngine.Light", "shadowAngle"}
+
             };
 
             HotfixCfg = new Dictionary<Type, HotfixFlag>();

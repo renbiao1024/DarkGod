@@ -1,64 +1,59 @@
-using System.Collections.Generic;
 using System.IO;
-/****************************************************
-    文件：LuaCopyEditor.cs
-    作者：Biu
-    邮箱: 1024906432@qq.com
-    日期：#CreateTime#
-    功能：
-*****************************************************/
-
-using UnityEditor;
+using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEditor;
+//编辑器开发需要继承的类Editor
 public class LuaCopyEditor : Editor
 {
-    [MenuItem("XLua/自动生成txt后缀的lua")]
+    //放在编辑器头顶菜单的哪个位置
+    [MenuItem("XLua/generate lua.txt")]
     public static void CopyLuaToTxt()
     {
-        //Debug.Log("自动生成txt后缀的lua");
-
-        //找到所有lua文件
-        string path = Application.dataPath + "/Lua/"; //    Assets/Lua/
-        if(!Directory.Exists(path)) return;
-
-        string[] strs = Directory.GetFiles(path,"*.lua");
-        // for(int i = 0; i < strs.Length; ++i)
-        //     Debug.Log(strs[i]);
-
-        //拷贝到新的文件夹
-        string newPath = Application.dataPath + "/LuaTxt/";
-
-        //先清空LuaTxt文件夹，再拷贝，防止无用文件滞留
+        //存放.lua文件的路径
+        string path=Application.dataPath+"/Lua/";
+        //判断路径是否存在
+        if(!Directory.Exists(path))
+            return;
+        
+        //路径存在获取文件后缀为.lua的所有文件名
+        string[] strs=Directory.GetFiles(path,"*.lua");
+        
+        //如果新路径不存在创建新路径
+        //如果存在删除该路径下的所有文件
+        string newPath=Application.dataPath+"/LuaTxt/";
         if(!Directory.Exists(newPath))
-        {
             Directory.CreateDirectory(newPath);
-        }
         else
         {
-            string[] oldFileStrs = Directory.GetFiles(newPath, "*.txt");
-            for(int i = 0; i < oldFileStrs.Length; ++i)
+            string[] oldStrs=Directory.GetFiles(newPath,"*.txt");
+            for(int i=0;i<oldStrs.Length;i++)
             {
-                File.Delete(oldFileStrs[i]);
+                File.Delete(oldStrs[i]);
             }
         }
-        List<string> newFileNames = new List<string>();
-        string fileName;
-        for(int i = 0; i < strs.Length; ++i)
+    
+        List<string> newFileNames=new List<string>();
+        string fileName=null;
+        for(int i=0;i<strs.Length;i++)
         {
-            fileName = newPath + strs[i].Substring(strs[i].LastIndexOf("/")+1) + ".txt";
-            //Debug.Log(fileName);
-            newFileNames.Add(fileName);
-            File.Copy(strs[i], fileName);
+            fileName=newPath+strs[i].Substring(strs[i].LastIndexOf("/")+1)+".txt";   
+            newFileNames.Add(fileName); 
+            //将第一个路径的文件内容拷贝到 第二个路径的文件
+            File.Copy(strs[i],fileName);
         }
+        //刷新编辑器
         AssetDatabase.Refresh();
-
-        //添加到AB包
-        for(int i = 0; i < newFileNames.Count; ++i)
+        //打成订制包
+        for(int i=0;i<newFileNames.Count;i++)
         {
-            AssetImporter importer = AssetImporter.GetAtPath(newFileNames[i].Substring(newFileNames[i].IndexOf("Assets")));
-            if(importer != null)
-                importer.assetBundleName = "lua";
+            //Unity Api
+            //该API传入的路径必须是 相对于Assets文件夹的 Assets/..../....
+            //该API是将某个文件 放入定制包中
+            AssetImporter importer=AssetImporter.GetAtPath(newFileNames[i].Substring(newFileNames[i].IndexOf("Assets")));
+            //定制包名为 lua，可以自行修改
+            if(importer!=null)
+                importer.assetBundleName="lua";
         }
     }
 }
+

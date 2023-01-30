@@ -1,3 +1,4 @@
+using System;
 /****************************************************
     文件：LuaMgr.cs
     作者：Biu
@@ -12,7 +13,6 @@ using XLua;
 public class LuaMgr : BaseManager<LuaMgr>
 {
     private LuaEnv luaEnv;
-
     public LuaTable Globle
     {
         get { return luaEnv.Global; }
