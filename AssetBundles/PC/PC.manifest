@@ -1,10 +1,19 @@
 ManifestFileVersion: 0
-CRC: 3405627055
+CRC: 677823041
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
       Name: audio
       Dependencies: {}
     Info_1:
-      Name: lua
+      Name: lua/service
+      Dependencies: {}
+    Info_2:
+      Name: lua/system
+      Dependencies: {}
+    Info_3:
+      Name: lua/uiwindow
+      Dependencies: {}
+    Info_4:
+      Name: lua/common
       Dependencies: {}

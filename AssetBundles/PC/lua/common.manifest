@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 3871850729
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: d696f3e9112be5f3af881f471e8957f1
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5ad585dd02dfb5016c0dad519eab8f49
+HashAppended: 0
+ClassTypes:
+- Class: 49
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/LuaTxt/Common/SplitTools.lua.txt
+- Assets/LuaTxt/Common/GameRoot.lua.txt
+- Assets/LuaTxt/Common/JsonUtility.lua.txt
+- Assets/LuaTxt/Common/CommonNames.lua.txt
+- Assets/LuaTxt/Common/Main.lua.txt
+- Assets/LuaTxt/Common/BaseObject.lua.txt
+Dependencies: []

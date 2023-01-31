@@ -12,7 +12,7 @@ public class Main : MonoBehaviour
     private void Start()
     {
         LuaMgr.GetInstance().Init();
-        LuaMgr.GetInstance().DoLuaFile("Main");
+        LuaMgr.GetInstance().DoLuaFile("Common/Main");
         // Ray ray = new Ray();
         // RaycastHit hitRet;
         // Physics.Raycast(ray, out hitRet);

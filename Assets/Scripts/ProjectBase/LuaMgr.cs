@@ -25,7 +25,7 @@ public class LuaMgr : BaseManager<LuaMgr>
         luaEnv = new LuaEnv();
 
         //按顺序查找，找到为止
-        luaEnv.AddLoader(MyCustomLoader);
+        //luaEnv.AddLoader(MyCustomLoader);
         luaEnv.AddLoader(MyCustomABLoader);
     }
 
