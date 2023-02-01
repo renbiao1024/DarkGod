@@ -2,12 +2,12 @@
 require("BaseObject")
 require("SplitTools")
 Json = require("JsonUtility")
-require("Service/ResSvc")
-require("Service/AudioSvc")
-require("System/LoginSys")
-require("UIWindow/WindowRoot")
-require("UIWindow/LoadingWnd")
-require("UIWindow/LoginWnd")
+require("ResSvc")
+require("AudioSvc")
+require("LoginSys")
+require("WindowRoot")
+require("LoadingWnd")
+require("LoginWnd")
 
 
 

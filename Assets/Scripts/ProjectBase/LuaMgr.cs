@@ -25,7 +25,8 @@ public class LuaMgr : BaseManager<LuaMgr>
         luaEnv = new LuaEnv();
 
         //按顺序查找，找到为止
-        //luaEnv.AddLoader(MyCustomLoader);
+        //当前的解决方法，如果用直接加载，require需要带入文件层级，如果在AB包加载，不需要层级
+        luaEnv.AddLoader(MyCustomLoader);
         luaEnv.AddLoader(MyCustomABLoader);
     }
 
@@ -57,14 +58,38 @@ public class LuaMgr : BaseManager<LuaMgr>
         //TextAsset tx = ab.LoadAsset<TextAsset>(filePath + ".lua");
         //return tx.bytes;
 
-        TextAsset lua = ABMgr.GetInstance().LoadRes<TextAsset>("lua",filePath + ".lua");
+        TextAsset lua = ABMgr.GetInstance().LoadRes<TextAsset>("lua/common",filePath + ".lua");
         if(lua != null)
         {
             return lua.bytes;
         }
         else
         {
-            Debug.Log(filePath + "重定向失败");
+            lua = ABMgr.GetInstance().LoadRes<TextAsset>("lua/service",filePath + ".lua");
+            if(lua != null)
+            {
+                return lua.bytes;
+            }
+            else 
+            {
+                lua = ABMgr.GetInstance().LoadRes<TextAsset>("lua/system",filePath + ".lua");
+                if(lua != null)
+                {
+                    return lua.bytes;
+                }
+                else
+                {
+                    lua = ABMgr.GetInstance().LoadRes<TextAsset>("lua/uiwindow",filePath + ".lua");
+                    if(lua != null)
+                    {
+                        return lua.bytes;
+                    }
+                    else
+                    {
+                        Debug.Log(filePath + "重定向失败");
+                    }
+                }
+            }
         }
         return null;
     }
