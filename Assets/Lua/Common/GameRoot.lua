@@ -2,12 +2,15 @@
 require("Common/BaseObject")
 require("Common/SplitTools")
 Json = require("Common/JsonUtility")
+require("Common/Coroutine_cs")
+
 require("Service/ResSvc")
 require("Service/AudioSvc")
 require("System/LoginSys")
 require("UIWindow/WindowRoot")
 require("UIWindow/LoadingWnd")
 require("UIWindow/LoginWnd")
+require("UIWindow/DynamicWnd")
 
 
 
@@ -30,9 +33,15 @@ function GameRoot:Init()
     --LuaComponent.Add(UIs.LoadingWndUI, LoadingWnd)
     UIs.LoginWndUI = GameObject.Find("GameRoot/Canvas/LoginWnd")
     --LuaComponent.Add(UIs.LoginWndUI, LoginWnd)
-
+    UIs.DynamicWnd = GameObject.Find("GameRoot/Canvas/DynamicWnd")
+    
+    LoadingWnd:InitWnd()
+    LoginWnd:InitWnd()
+    DynamicWnd:InitWnd()
+    
     --进入登陆场景 加载UI
     LoginSys:EnterLogin()
+
 end
 
 

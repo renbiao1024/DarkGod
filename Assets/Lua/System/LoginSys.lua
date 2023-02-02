@@ -21,4 +21,8 @@ function LoginSys:EnterLogin()
         LoginWnd:SetWndState(UIs.LoginWndUI, true)
         AudioSvc:PlayBGMusic(Audios.BGLogin,true)
     end)
+
+
+    DynamicWnd:SetTips("tips test")
+
 end

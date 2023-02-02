@@ -18,19 +18,19 @@ function WindowRoot:SetWndState(go, isActive)
     end
 end
 
-function WindowRoot:SetActive(obj, isActive)
-    if typeof(obj) == GameObject then
-        obj.SetActive(isActive)
-    else
-        obj.gameObject.SetActive(isActive)
-    end
-end
+-- function WindowRoot:SetActive(obj, isActive)
+--     if typeof(obj) == GameObject then
+--         obj.SetActive(isActive)
+--     else
+--         obj.gameObject.SetActive(isActive)
+--     end
+-- end
 
-function WindowRoot:SetText(obj, content)
-    if  typeof(obj) == Text then
-        obj.text = tostring(content)
-    else
-        obj:GetComponent(typeof(Text)).text = tostring(content)
-    end
-end
+-- function WindowRoot:SetText(obj, content)
+--     if  typeof(obj) == Text then
+--         obj.text = tostring(content)
+--     else
+--         obj:GetComponent(typeof(Text)).text = tostring(content)
+--     end
+-- end
 

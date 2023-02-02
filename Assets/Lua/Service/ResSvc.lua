@@ -25,7 +25,7 @@ end
 
 function ResSvc:AsyncLoadScene(sceneName, loaded)
     UIs.LoadingWndUI.gameObject:SetActive(true)
-    LoadingWnd:InitWnd()
+
     self.sceneAsync = SceneManager.LoadSceneAsync(sceneName)
     self.loaded = loaded
 end

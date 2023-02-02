@@ -12,7 +12,9 @@ Transform = UnityEngine.Transform
 AudioClip = UnityEngine.AudioClip
 AudioSource = UnityEngine.AudioSource
 Resources = UnityEngine.Resources
-
+Animation = UnityEngine.Animation
+AnimationClip = UnityEngine.AnimationClip
+WaitForSeconds = UnityEngine.WaitForSeconds
 -- UI
 UI = UnityEngine.UI
 Text = UI.Text
@@ -30,7 +32,8 @@ GameRootInst = nil
 --自定义UI
 UIs = {
     LoadingWndUI = nil,
-    LoginWndUI = nil
+    LoginWndUI = nil,
+    DynamicWnd = nil
 }
 
 -- 场景名称
