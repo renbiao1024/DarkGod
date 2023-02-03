@@ -23,6 +23,8 @@ function LoginSys:EnterLogin()
     end)
 
 
-    DynamicWnd:SetTips("tips test")
+    GameRoot:AddTips("tips test1")
+    GameRoot:AddTips("tips test2")
+    GameRoot:AddTips("tips test3")
 
 end

@@ -1,5 +1,6 @@
 -- unity类
 UnityEngine = CS.UnityEngine
+Generic = CS.System.Collections.Generic
 GameObject = UnityEngine.GameObject
 InspectorName = UnityEngine.Object.name
 SceneManager = UnityEngine.SceneManagement.SceneManager
@@ -33,7 +34,7 @@ GameRootInst = nil
 UIs = {
     LoadingWndUI = nil,
     LoginWndUI = nil,
-    DynamicWnd = nil
+    DynamicWndUI = nil
 }
 
 -- 场景名称

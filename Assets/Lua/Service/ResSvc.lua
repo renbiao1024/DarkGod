@@ -8,7 +8,7 @@ ResSvc.isPrgFinish = false
 ResSvc.sceneAsync = nil
 ResSvc.loaded = nil
 
-local Dic_String_Bool = CS.System.Collections.Generic.Dictionary(CS.System.String,CS.System.Boolean)
+local Dic_String_Bool = Generic.Dictionary(CS.System.String,CS.System.Boolean)
 ResSvc.adDic = Dic_String_Bool()
 
 

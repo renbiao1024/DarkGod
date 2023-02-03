@@ -33,15 +33,17 @@ function GameRoot:Init()
     --LuaComponent.Add(UIs.LoadingWndUI, LoadingWnd)
     UIs.LoginWndUI = GameObject.Find("GameRoot/Canvas/LoginWnd")
     --LuaComponent.Add(UIs.LoginWndUI, LoginWnd)
-    UIs.DynamicWnd = GameObject.Find("GameRoot/Canvas/DynamicWnd")
-    
+    UIs.DynamicWndUI = GameObject.Find("GameRoot/Canvas/DynamicWnd")
+    LuaComponent.Add(UIs.DynamicWndUI, DynamicWnd)
+
     LoadingWnd:InitWnd()
     LoginWnd:InitWnd()
     DynamicWnd:InitWnd()
     
     --进入登陆场景 加载UI
     LoginSys:EnterLogin()
-
 end
 
-
+function GameRoot:AddTips(tips)
+    DynamicWnd:AddTips(tips)
+end

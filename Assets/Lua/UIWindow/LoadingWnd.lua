@@ -9,13 +9,6 @@ LoadingWnd.imgFG = nil
 LoadingWnd.imgPoint = nil
 LoadingWnd.txtPrg = nil
 
-function LoadingWnd:ctor(obj)
-    local o = {}
-    setmetatable(o,self)
-    self.__index = self
-    return o
-end
-
 function LoadingWnd:InitWnd()
     self.base.InitWnd(self)
     self.txtTips = GameObject.Find("GameRoot/Canvas/LoadingWnd/BottomPin/txtTips"):GetComponent(typeof(Text))
