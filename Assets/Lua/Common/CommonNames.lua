@@ -16,6 +16,10 @@ Resources = UnityEngine.Resources
 Animation = UnityEngine.Animation
 AnimationClip = UnityEngine.AnimationClip
 WaitForSeconds = UnityEngine.WaitForSeconds
+TextAsset = UnityEngine.TextAsset
+Xml = CS.System.Xml
+Random = CS.System.Random
+
 -- UI
 UI = UnityEngine.UI
 Text = UI.Text
@@ -48,6 +52,11 @@ Audios = {
     BGLogin = "bgLogin",
     UIClickBtn = "uiClickBtn",
     UILoginBtn = "uiLoginBtn"
+}
+
+-- ConfigName
+Configs = {
+    RDNameCfg = "ResCfgs/rdname"
 }
 
 -- 判空

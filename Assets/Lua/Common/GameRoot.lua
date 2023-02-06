@@ -3,6 +3,7 @@ require("Common/BaseObject")
 require("Common/SplitTools")
 Json = require("Common/JsonUtility")
 require("Common/Coroutine_cs")
+require("Common/PETools")
 
 require("Service/ResSvc")
 require("Service/AudioSvc")
@@ -25,6 +26,7 @@ function GameRoot:Init()
 
     --服务模块初始化
     LuaComponent.Add(GameRootInst, ResSvc)
+    ResSvc:InitSvc()
     AudioSvc:InitSvc()
 
     --业务系统初始化

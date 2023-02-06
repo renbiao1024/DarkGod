@@ -25,7 +25,7 @@ function LoginSys:EnterLogin()
 end
 
 function LoginSys:RspLogin()
-    GameRoot:AddTips("登陆成功")
+    --GameRoot:AddTips("登陆成功")
     CreateWnd:InitWnd()
     CreateWnd:SetWndState(UIs.CreateWndUI,true)
     LoginWnd:SetWndState(UIs.LoginWndUI,false)
