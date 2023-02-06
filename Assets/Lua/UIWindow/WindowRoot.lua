@@ -8,7 +8,7 @@ end
 
 function WindowRoot:SetWndState(go, isActive)
     if(go.gameObject.activeSelf ~= isActive) then
-        self:SetActive(go.gameObject, isActive)
+        go.gameObject:SetActive(isActive)
     end
     
     if isActive then
@@ -18,13 +18,6 @@ function WindowRoot:SetWndState(go, isActive)
     end
 end
 
--- function WindowRoot:SetActive(obj, isActive)
---     if typeof(obj) == GameObject then
---         obj.SetActive(isActive)
---     else
---         obj.gameObject.SetActive(isActive)
---     end
--- end
 
 -- function WindowRoot:SetText(obj, content)
 --     if  typeof(obj) == Text then

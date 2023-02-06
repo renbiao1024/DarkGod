@@ -1,7 +1,7 @@
 --print("lua init")
 
-require("CommonNames") -- 常用别名
+require("Common/CommonNames") -- 常用别名
 
 
-require("GameRoot")
+require("Common/GameRoot")
 GameRoot:Init()

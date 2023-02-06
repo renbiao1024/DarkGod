@@ -29,8 +29,3 @@ function LoadingWnd:SetProgress(prg)
     local posX =  -545 + prg * self.fgWidth
     self.imgPoint:GetComponent(typeof(RectTransform)).anchoredPosition = Vector2(posX, 0)
 end
-
-
-function LoadingWnd:SetWndState(go, isActive)
-    self.base.SetWndState(self, go, isActive)
-end

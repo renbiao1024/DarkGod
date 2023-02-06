@@ -1,13 +1,17 @@
 -- 游戏启动入口
-require("BaseObject")
-require("SplitTools")
-Json = require("JsonUtility")
-require("ResSvc")
-require("AudioSvc")
-require("LoginSys")
-require("WindowRoot")
-require("LoadingWnd")
-require("LoginWnd")
+require("Common/BaseObject")
+require("Common/SplitTools")
+Json = require("Common/JsonUtility")
+require("Common/Coroutine_cs")
+
+require("Service/ResSvc")
+require("Service/AudioSvc")
+require("System/LoginSys")
+require("UIWindow/WindowRoot")
+require("UIWindow/LoadingWnd")
+require("UIWindow/LoginWnd")
+require("UIWindow/DynamicWnd")
+require("UIWindow/CreateWnd")
 
 
 
@@ -22,7 +26,7 @@ function GameRoot:Init()
     LuaComponent.Add(GameRootInst, AudioSvc)
     AudioSvc:InitSvc()
     --业务系统初始化
-    LuaComponent.Add(GameRootInst, LoginSys)
+    --LuaComponent.Add(GameRootInst, LoginSys)
 
 
     --UI初始化
@@ -30,9 +34,19 @@ function GameRoot:Init()
     --LuaComponent.Add(UIs.LoadingWndUI, LoadingWnd)
     UIs.LoginWndUI = GameObject.Find("GameRoot/Canvas/LoginWnd")
     --LuaComponent.Add(UIs.LoginWndUI, LoginWnd)
+    UIs.DynamicWndUI = GameObject.Find("GameRoot/Canvas/DynamicWnd")
+    LuaComponent.Add(UIs.DynamicWndUI, DynamicWnd)
+    UIs.CreateWndUI = GameObject.Find("GameRoot/Canvas/CreateWnd")
+
+    LoadingWnd:InitWnd()
+    LoginWnd:InitWnd()
+    DynamicWnd:InitWnd()
+    CreateWnd:InitWnd()
 
     --进入登陆场景 加载UI
     LoginSys:EnterLogin()
 end
 
-
+function GameRoot:AddTips(tips)
+    DynamicWnd:AddTips(tips)
+end

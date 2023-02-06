@@ -6,11 +6,14 @@ require("Common/Coroutine_cs")
 
 require("Service/ResSvc")
 require("Service/AudioSvc")
+
 require("System/LoginSys")
+
 require("UIWindow/WindowRoot")
 require("UIWindow/LoadingWnd")
 require("UIWindow/LoginWnd")
 require("UIWindow/DynamicWnd")
+require("UIWindow/CreateWnd")
 
 
 
@@ -22,10 +25,11 @@ function GameRoot:Init()
 
     --服务模块初始化
     LuaComponent.Add(GameRootInst, ResSvc)
-    LuaComponent.Add(GameRootInst, AudioSvc)
     AudioSvc:InitSvc()
+
     --业务系统初始化
-    LuaComponent.Add(GameRootInst, LoginSys)
+    LoginSys:InitSys()
+    --LuaComponent.Add(GameRootInst, LoginSys)
 
 
     --UI初始化
@@ -35,11 +39,11 @@ function GameRoot:Init()
     --LuaComponent.Add(UIs.LoginWndUI, LoginWnd)
     UIs.DynamicWndUI = GameObject.Find("GameRoot/Canvas/DynamicWnd")
     LuaComponent.Add(UIs.DynamicWndUI, DynamicWnd)
+    UIs.CreateWndUI = GameObject.Find("GameRoot/Canvas/CreateWnd")
 
     LoadingWnd:InitWnd()
-    LoginWnd:InitWnd()
     DynamicWnd:InitWnd()
-    
+
     --进入登陆场景 加载UI
     LoginSys:EnterLogin()
 end

@@ -16,7 +16,7 @@ function AudioSvc:InitSvc()
 end
 
 function AudioSvc:PlayBGMusic(name, isLoop)
-    local audio = ResSvc:LoadAudio("ResAudio/" .. name, true)
+    local audio = ResSvc:LoadAudio( name, true)
     if IsNull(self.bgAudio.clip) or self.bgAudio.name ~= audio.name then
         self.bgAudio.clip = audio
         self.bgAudio.loop = isLoop
@@ -25,7 +25,7 @@ function AudioSvc:PlayBGMusic(name, isLoop)
 end
 
 function AudioSvc:PlayUIAudio(name)
-    local audio = ResSvc:LoadAudio("ResAudio/".. name, true)
+    local audio = ResSvc:LoadAudio(name, true)
     self.uiAudio.clip = audio
     self.uiAudio:Play()
 end

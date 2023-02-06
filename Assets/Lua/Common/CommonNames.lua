@@ -34,7 +34,8 @@ GameRootInst = nil
 UIs = {
     LoadingWndUI = nil,
     LoginWndUI = nil,
-    DynamicWndUI = nil
+    DynamicWndUI = nil,
+    CreateWndUI = nil
 }
 
 -- 场景名称
@@ -44,7 +45,9 @@ Scenes = {
 
 -- 音效名称
 Audios = {
-    BGLogin = "bgLogin"
+    BGLogin = "bgLogin",
+    UIClickBtn = "uiClickBtn",
+    UILoginBtn = "uiLoginBtn"
 }
 
 -- 判空

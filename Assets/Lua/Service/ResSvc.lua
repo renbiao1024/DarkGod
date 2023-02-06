@@ -54,7 +54,7 @@ end
 function ResSvc:LoadAudio(path, cache)
     local getSucceed, au = self.adDic:TryGetValue(path)
     if getSucceed == false then
-        au = ABMgr:LoadRes("audio", "bgLogin", typeof(AudioClip))
+        au = ABMgr:LoadRes("audio", path, typeof(AudioClip))
         if cache then
             self.adDic:Add(path, au)
         end

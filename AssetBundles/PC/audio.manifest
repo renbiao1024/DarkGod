@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2361558350
+CRC: 2290343898
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 6c0a87c8de62e31c307c748ad5442f38
+    Hash: e50b00efe6d6d2eb5940c5a9423fe7c8
   TypeTreeHash:
     serializedVersion: 2
     Hash: 9a2ca7bdbd1871f7131daf57de908e0c
@@ -13,5 +13,7 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
+- Assets/Resources/ResAudio/uiClickBtn.mp3
 - Assets/Resources/ResAudio/bgLogin.mp3
+- Assets/Resources/ResAudio/uiLoginBtn.mp3
 Dependencies: []
