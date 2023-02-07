@@ -19,6 +19,8 @@ WaitForSeconds = UnityEngine.WaitForSeconds
 TextAsset = UnityEngine.TextAsset
 Xml = CS.System.Xml
 Random = CS.System.Random
+PEProtocol = CS.PEProtocol
+
 
 -- UI
 UI = UnityEngine.UI

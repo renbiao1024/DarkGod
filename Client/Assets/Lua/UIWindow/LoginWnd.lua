@@ -44,13 +44,20 @@ end
 function LoginWnd:ClickEnterBtn()
 
     AudioSvc:PlayUIAudio(Audios.UILoginBtn)
-    local acct = self.iptAcct.text
-    local pass = self.iptPass.text
-    if(acct ~= "" and pass ~= "") then
-        PlayerPrefs.SetString("Acct",acct)
-        PlayerPrefs.SetString("Pass",pass)
+    local _acct = self.iptAcct.text
+    local _pass = self.iptPass.text
+    if(_acct ~= "" and _pass ~= "") then
+        PlayerPrefs.SetString("Acct",_acct)
+        PlayerPrefs.SetString("Pass",_pass)
 
-        LoginSys:RspLogin()
+        local msg = PEProtocol.GameMsg()
+        msg.cmd = PEProtocol.CMD.ReqLogin
+        msg.reqLogin = PEProtocol.ReqLogin()
+        msg.reqLogin.acct = _acct
+        msg.reqLogin.pass = _pass
+
+        NetSvc:SendMsg(msg)
+        --LoginSys:RspLogin()
     else
         GameRoot:AddTips("账号或密码为空")
     end
