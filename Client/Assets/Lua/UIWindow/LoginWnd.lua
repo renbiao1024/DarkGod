@@ -57,7 +57,7 @@ function LoginWnd:ClickEnterBtn()
         msg.reqLogin.pass = _pass
 
         NetSvc:SendMsg(msg)
-        --LoginSys:RspLogin()
+        LoginSys:RspLogin()
     else
         GameRoot:AddTips("账号或密码为空")
     end

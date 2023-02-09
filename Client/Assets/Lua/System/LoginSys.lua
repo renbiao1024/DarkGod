@@ -24,9 +24,38 @@ function LoginSys:EnterLogin()
     end)
 end
 
-function LoginSys:RspLogin()
+function LoginSys:RspLogin(msg)
     --GameRoot:AddTips("登陆成功")
     CreateWnd:InitWnd()
     CreateWnd:SetWndState(UIs.CreateWndUI,true)
     LoginWnd:SetWndState(UIs.LoginWndUI,false)
 end
+
+function LoginSys:RspRename(msg)
+end
+
+-- public void RspLogin(GameMsg msg)
+-- {
+--     GameRoot.AddTips("登陆成功");
+
+--     GameRoot.Instance.SetPlayerData(msg.rspLogin);
+
+--     if(msg.rspLogin.playerData.name == "")//新账号
+--     {
+--         createWnd.SetWndState(true);
+--     }
+--     else
+--     {
+--         MainCitySys.Instance.EnterMainCity();
+--     }
+
+--     loginWnd.SetWndState(false);
+-- }
+
+-- public void RspRename(GameMsg msg)
+-- {
+--     GameRoot.Instance.SetPlayerName(msg.rspRename.name);
+
+--     MainCitySys.Instance.EnterMainCity();
+--     createWnd.SetWndState(false);
+-- }

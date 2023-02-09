@@ -10,6 +10,18 @@ using System.Linq;
 using PENet;
 using PEProtocol;
 using UnityEngine;
+using XLua;
+
+// call lua class
+[CSharpCallLua]
+interface LuaLoginSys
+{
+
+     void RspLogin(GameMsg msg);
+
+     void RspRename(GameMsg msg);
+}
+
 
 public class NetSvc : MonoBehaviour 
 {
@@ -17,12 +29,11 @@ public class NetSvc : MonoBehaviour
     private static readonly string obj = "lock";
     PESocket<ClientSession, GameMsg> client = null;
     private Queue<GameMsg> msgQue = new Queue<GameMsg>();
-        public void InitSvc()
+
+    public void InitSvc()
     {
-        Instance = this;
-
         client = new PESocket<ClientSession, GameMsg>();
-
+        Instance = this;
         //在 unity 输出
         client.SetLog(true, (string msg, int lv) =>
         {
@@ -58,7 +69,7 @@ public class NetSvc : MonoBehaviour
         }
         else
         {
-            //GameRoot.AddTips("服务器未连接");
+            Debug.Log("服务器未连接");
             InitSvc();
         }
     }
@@ -101,14 +112,16 @@ public class NetSvc : MonoBehaviour
             }
             return;
         }
-        
+
+        //LuaLoginSys loginSys = LuaMgr.GetInstance().Globle.Get<LuaLoginSys>("LoginSys");
+        Debug.Log("point");
         switch((CMD)msg.cmd)//处理回应消息
         {
             case CMD.RspLogin:
-                //LoginSys.Instance.RspLogin(msg);
+                //loginSys.RspLogin(msg); // 由于版本不兼容，这里简单处理
                 break;
             case CMD.RspRename:
-                //LoginSys.Instance.RspRename(msg);
+                //loginSys.RspRename(msg);
                 break;
         }
     }
