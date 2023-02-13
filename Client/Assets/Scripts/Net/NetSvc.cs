@@ -113,15 +113,15 @@ public class NetSvc : MonoBehaviour
             return;
         }
 
-        //LuaLoginSys loginSys = LuaMgr.GetInstance().Globle.Get<LuaLoginSys>("LoginSys");
-        Debug.Log("point");
+        LuaLoginSys loginSys = LuaMgr.GetInstance().Globle.Get<LuaLoginSys>("LoginSys");
+        //Debug.Log("point");
         switch((CMD)msg.cmd)//处理回应消息
         {
             case CMD.RspLogin:
-                //loginSys.RspLogin(msg); // 由于版本不兼容，这里简单处理
+                loginSys.RspLogin(msg); // 由于版本不兼容，这里简单处理
                 break;
             case CMD.RspRename:
-                //loginSys.RspRename(msg);
+                loginSys.RspRename(msg);
                 break;
         }
     }

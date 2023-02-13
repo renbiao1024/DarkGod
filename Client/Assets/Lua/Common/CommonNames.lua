@@ -42,17 +42,20 @@ UIs = {
     LoadingWndUI = nil,
     LoginWndUI = nil,
     DynamicWndUI = nil,
-    CreateWndUI = nil
+    CreateWndUI = nil,
+    MainCityWndUI = nil
 }
 
 -- 场景名称
 Scenes = {
-    SceneLogin = "SceneLogin"
+    SceneLogin = "SceneLogin",
+    SceneMainCity = "SceneMainCity"
 }
 
 -- 音效名称
 Audios = {
     BGLogin = "bgLogin",
+    BGMainCity = "bgMainCity",
     UIClickBtn = "uiClickBtn",
     UILoginBtn = "uiLoginBtn"
 }

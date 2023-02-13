@@ -26,7 +26,9 @@ end
 function CreateWnd:ClickEnterBtn()
     AudioSvc:PlayUIAudio(Audios.UIClickBtn)
     if(self.iptName.text ~= "") then
-        -- TODO 服务器登陆
+        PlayerPrefs.SetString("Name",self.iptName.text)
+        MainCitySys:EnterMainCity()
+        CreateWnd:SetWndState(UIs.CreateWndUI,false)
     else
         GameRoot:AddTips("名字不符合规范")
     end

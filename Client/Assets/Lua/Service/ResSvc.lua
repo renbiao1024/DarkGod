@@ -33,6 +33,7 @@ function ResSvc:AsyncLoadScene(sceneName, loaded)
 
     self.sceneAsync = SceneManager.LoadSceneAsync(sceneName)
     self.loaded = loaded
+    self.isPrgFinish = false
 end
 
 function ResSvc:Update()
@@ -52,7 +53,7 @@ function ResSvc:UpdatePrg()
         self.isPrgFinish = true
         self.sceneAsync = nil
         self.loaded = nil
-        UIs.LoadingWndUI.gameObject:SetActive(false)
+        LoadingWnd:SetWndState(UIs.LoadingWndUI, false)
     end
 end
 

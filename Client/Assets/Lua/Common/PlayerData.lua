@@ -1,0 +1,4 @@
+PlayerData = {
+    name,
+    lv
+}

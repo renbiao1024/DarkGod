@@ -10,11 +10,11 @@ end
 
 function AudioSvc:PlayBGMusic(name, isLoop)
     local audio = ResSvc:LoadAudio( name, true)
-    if IsNull(self.bgAudio.clip) or self.bgAudio.name ~= audio.name then
-        self.bgAudio.clip = audio
-        self.bgAudio.loop = isLoop
-        self.bgAudio:Play()
-    end
+    --if IsNull(self.bgAudio.clip) or self.bgAudio.name ~= audio.name then
+    self.bgAudio.clip = audio
+    self.bgAudio.loop = isLoop
+    self.bgAudio:Play()
+    --end
 end
 
 function AudioSvc:PlayUIAudio(name)

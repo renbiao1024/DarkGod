@@ -7,15 +7,15 @@ require("Common/PETools")
 
 require("Service/ResSvc")
 require("Service/AudioSvc")
-
 require("System/LoginSys")
+require("System/MainCitySys")
 
 require("UIWindow/WindowRoot")
 require("UIWindow/LoadingWnd")
 require("UIWindow/LoginWnd")
 require("UIWindow/DynamicWnd")
 require("UIWindow/CreateWnd")
-
+require("UIWindow/MainCityWnd")
 
 
 GameRoot = {}
@@ -25,8 +25,8 @@ function GameRoot:Init()
     Object.DontDestroyOnLoad(GameRootInst)
 
     --服务模块初始化
-    NetSvc = GameObject.Find("GameRoot"):GetComponent(typeof(CS.NetSvc))
-    NetSvc:InitSvc()
+    --NetSvc = GameObject.Find("GameRoot"):GetComponent(typeof(CS.NetSvc))
+    --NetSvc:InitSvc()
     LuaComponent.Add(GameRootInst, ResSvc)
     ResSvc:InitSvc()
     AudioSvc:InitSvc()
@@ -44,6 +44,7 @@ function GameRoot:Init()
     UIs.DynamicWndUI = GameObject.Find("GameRoot/Canvas/DynamicWnd")
     LuaComponent.Add(UIs.DynamicWndUI, DynamicWnd)
     UIs.CreateWndUI = GameObject.Find("GameRoot/Canvas/CreateWnd")
+    UIs.MainCityWndUI = GameObject.Find("GameRoot/Canvas/MainCityWnd")
 
     LoadingWnd:InitWnd()
     DynamicWnd:InitWnd()

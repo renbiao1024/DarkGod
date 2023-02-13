@@ -49,15 +49,14 @@ function LoginWnd:ClickEnterBtn()
     if(_acct ~= "" and _pass ~= "") then
         PlayerPrefs.SetString("Acct",_acct)
         PlayerPrefs.SetString("Pass",_pass)
+        -- local msg = PEProtocol.GameMsg()
+        -- msg.cmd = PEProtocol.CMD.ReqLogin
+        -- msg.reqLogin = PEProtocol.ReqLogin()
+        -- msg.reqLogin.acct = _acct
+        -- msg.reqLogin.pass = _pass
 
-        local msg = PEProtocol.GameMsg()
-        msg.cmd = PEProtocol.CMD.ReqLogin
-        msg.reqLogin = PEProtocol.ReqLogin()
-        msg.reqLogin.acct = _acct
-        msg.reqLogin.pass = _pass
-
-        NetSvc:SendMsg(msg)
-        LoginSys:RspLogin()
+        -- NetSvc:SendMsg(msg)
+        LoginSys:Login()
     else
         GameRoot:AddTips("账号或密码为空")
     end
