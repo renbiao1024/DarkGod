@@ -600,7 +600,6 @@ GameObject:
   - component: {fileID: 1165629001}
   - component: {fileID: 1165629000}
   - component: {fileID: 1165628999}
-  - component: {fileID: 1165628998}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -608,14 +607,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1165628998
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1165628997}
-  m_Enabled: 1
 --- !u!124 &1165628999
 Behaviour:
   m_ObjectHideFlags: 0
@@ -801,6 +792,14 @@ PrefabInstance:
     - target: {fileID: 1536787469994952, guid: e1c566edc6f6535469002a45917ec988, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114343733885019016, guid: e1c566edc6f6535469002a45917ec988, type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114343733885019016, guid: e1c566edc6f6535469002a45917ec988, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 224201244994793220, guid: e1c566edc6f6535469002a45917ec988, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1029,6 +1028,10 @@ PrefabInstance:
     - target: {fileID: 224540807990966360, guid: e1c566edc6f6535469002a45917ec988, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224802510011679294, guid: e1c566edc6f6535469002a45917ec988, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 224893204542317062, guid: e1c566edc6f6535469002a45917ec988, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1293,6 +1296,7 @@ GameObject:
   - component: {fileID: 1973066233}
   - component: {fileID: 1973066234}
   - component: {fileID: 1973066235}
+  - component: {fileID: 1973066236}
   m_Layer: 0
   m_Name: GameRoot
   m_TagString: Untagged
@@ -1355,6 +1359,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11742a3aa6bccbc42b321b9931116fe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!81 &1973066236
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973066231}
+  m_Enabled: 1
 --- !u!224 &2081218821 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224284950832759982, guid: e1c566edc6f6535469002a45917ec988, type: 3}

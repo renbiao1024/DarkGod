@@ -27,6 +27,7 @@ function CreateWnd:ClickEnterBtn()
     AudioSvc:PlayUIAudio(Audios.UIClickBtn)
     if(self.iptName.text ~= "") then
         PlayerPrefs.SetString("Name",self.iptName.text)
+        PlayerData.name = self.iptName.text
         MainCitySys:EnterMainCity()
         CreateWnd:SetWndState(UIs.CreateWndUI,false)
     else

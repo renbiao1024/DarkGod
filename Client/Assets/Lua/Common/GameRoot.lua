@@ -9,6 +9,7 @@ require("Service/ResSvc")
 require("Service/AudioSvc")
 require("System/LoginSys")
 require("System/MainCitySys")
+require("Common/PlayerData")
 
 require("UIWindow/WindowRoot")
 require("UIWindow/LoadingWnd")
