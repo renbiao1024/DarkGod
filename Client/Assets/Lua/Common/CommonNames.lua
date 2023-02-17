@@ -20,7 +20,7 @@ TextAsset = UnityEngine.TextAsset
 Xml = CS.System.Xml
 Random = CS.System.Random
 PEProtocol = CS.PEProtocol
-
+Screen = UnityEngine.Screen
 
 -- UI
 UI = UnityEngine.UI
@@ -28,6 +28,7 @@ Text = UI.Text
 Image = UI.Image
 Button = UI.Button
 InputField = UI.InputField
+GridLayoutGroup = UI.GridLayoutGroup
 
 -- 自定义类
 LuaComponent = CS.LuaComponent
@@ -63,6 +64,12 @@ Audios = {
 -- ConfigName
 Configs = {
     RDNameCfg = "ResCfgs/rdname"
+}
+
+-- 标准屏幕宽高
+ScreenSize = {
+    stdWidth = 1334,
+    stdHeight = 750
 }
 
 -- 判空
