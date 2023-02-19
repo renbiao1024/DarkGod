@@ -10,12 +10,6 @@ function WindowRoot:SetWndState(go, isActive)
     if(go.gameObject.activeSelf ~= isActive) then
         go.gameObject:SetActive(isActive)
     end
-    
-    if isActive then
-        self:InitWnd()
-    else
-        self:ClearWnd()
-    end
 end
 
 

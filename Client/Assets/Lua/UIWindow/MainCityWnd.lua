@@ -7,6 +7,9 @@ MainCityWnd.txtLv = nil
 MainCityWnd.txtName = nil
 MainCityWnd.expPrgLst = nil
 MainCityWnd.txtExpPrg = nil
+MainCityWnd.menuState = true
+MainCityWnd.btnMenuBtn = nil
+MainCityWnd.menuAni = nil
 
 function MainCityWnd:InitWnd()
     self.base.InitWnd(self)
@@ -18,7 +21,11 @@ function MainCityWnd:InitWnd()
     self.txtName = UIs.MainCityWndUI.transform:Find("CenterPin/txtName"):GetComponent(typeof(Text))
     self.expPrgLst = UIs.MainCityWndUI.transform:Find("BottomPin/bgExp/itemLst").transform
     self.txtExpPrg = UIs.MainCityWndUI.transform:Find("BottomPin/txtExpPrg"):GetComponent(typeof(Text))
-
+    self.btnMenuBtn = UIs.MainCityWndUI.transform:Find("RightBottomPin/MenuRoot/btnMenu"):GetComponent(typeof(Button))
+    self.menuAni = UIs.MainCityWndUI.transform:Find("RightBottomPin/MenuRoot"):GetComponent(typeof(Animation))
+    self.btnMenuBtn.onClick:AddListener(function()
+        self:ClickMenuBtn()
+    end)
     self:RefreshUI()
 end
 
@@ -51,6 +58,18 @@ function MainCityWnd:RefreshUI()
     end
 end
 
-
+function MainCityWnd:ClickMenuBtn()
+    AudioSvc:PlayUIAudio(Audios.UIExtenBtn)
+    self.menuState = not self.menuState
+    local clip = nil
+    if(self.menuState)then
+        clip = self.menuAni:GetClip("OpenMCMenu")
+        --print("Open")
+    else
+        clip = self.menuAni:GetClip("CloseMCMenu")
+        --print("Close")
+    end
+    self.menuAni:Play(clip.name)
+end
 
 

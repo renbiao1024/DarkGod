@@ -58,7 +58,8 @@ Audios = {
     BGLogin = "bgLogin",
     BGMainCity = "bgMainCity",
     UIClickBtn = "uiClickBtn",
-    UILoginBtn = "uiLoginBtn"
+    UILoginBtn = "uiLoginBtn",
+    UIExtenBtn = "UIExtenBtn"
 }
 
 -- ConfigName
