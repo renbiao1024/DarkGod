@@ -34,6 +34,7 @@ GridLayoutGroup = UI.GridLayoutGroup
 LuaComponent = CS.LuaComponent
 ABMgr = CS.ABMgr.GetInstance()
 ClientSession = CS.ClientSession
+PEListener = CS.PEListener
 
 -- 全局单例
 GameRootInst = nil
@@ -70,7 +71,8 @@ Configs = {
 -- 标准屏幕宽高
 ScreenSize = {
     stdWidth = 1334,
-    stdHeight = 750
+    stdHeight = 750,
+    stdOptionDis = 90
 }
 
 -- 判空

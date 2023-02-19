@@ -11,10 +11,15 @@ MainCityWnd.menuState = true
 MainCityWnd.btnMenuBtn = nil
 MainCityWnd.menuAni = nil
 
+MainCityWnd.imgDirBg = nil
+MainCityWnd.imgDirPoint = nil
+MainCityWnd.pointDis = nil
+MainCityWnd.startPos = Vector3.zero
+MainCityWnd.defaultPos = Vector3.zero
+
 function MainCityWnd:InitWnd()
     self.base.InitWnd(self)
     self.txtFight = UIs.MainCityWndUI.transform:Find("LeftTopPin/bgFight/txtFight"):GetComponent(typeof(Text))
-    --print(self.txtFight)
     self.txtPow = UIs.MainCityWndUI.transform:Find("LeftTopPin/bgPower/txtPower"):GetComponent(typeof(Text))
     self.imgPowPrg = UIs.MainCityWndUI.transform:Find("LeftTopPin/bgPower/imgPowerPrg"):GetComponent(typeof(Image))
     self.txtLv = UIs.MainCityWndUI.transform:Find("LeftTopPin/bgLv/txtLv"):GetComponent(typeof(Text))
@@ -23,9 +28,17 @@ function MainCityWnd:InitWnd()
     self.txtExpPrg = UIs.MainCityWndUI.transform:Find("BottomPin/txtExpPrg"):GetComponent(typeof(Text))
     self.btnMenuBtn = UIs.MainCityWndUI.transform:Find("RightBottomPin/MenuRoot/btnMenu"):GetComponent(typeof(Button))
     self.menuAni = UIs.MainCityWndUI.transform:Find("RightBottomPin/MenuRoot"):GetComponent(typeof(Animation))
+    self.imgDirBg = UIs.MainCityWndUI.transform:Find("LeftBottomPin/imgTouch/imgDirBg")
+    self.imgDirPoint = UIs.MainCityWndUI.transform:Find("LeftBottomPin/imgTouch/imgDirBg/imgDirPoint")
+
+    self.pointDis = Screen.height / ScreenSize.stdHeight * ScreenSize.stdOptionDis
+    self.defaultPos = self.imgDirBg.transform.position
+
     self.btnMenuBtn.onClick:AddListener(function()
         self:ClickMenuBtn()
     end)
+
+    self:RegisterEouchEvents()
     self:RefreshUI()
 end
 
@@ -72,4 +85,28 @@ function MainCityWnd:ClickMenuBtn()
     self.menuAni:Play(clip.name)
 end
 
+function MainCityWnd:RegisterEouchEvents()
+    local listener = UIs.MainCityWndUI:GetComponent(typeof(PEListener))
 
+    listener.onClickDown = function(evt)
+        self.startPos = Vector3(evt.position.x, evt.position.y, 0)
+        self.imgDirBg.transform.position = Vector3(evt.position.x, evt.position.y, 0)
+    end
+
+    listener.onClickUp = function(evt)
+        self.imgDirBg.transform.position = self.defaultPos
+        self.imgDirPoint.transform.localPosition = Vector3.zero
+    end
+
+    listener.onDrag = function(evt)
+        local dir = Vector3(evt.position.x, evt.position.y, 0) - self.startPos
+        local len = dir.magnitude
+        if(len > self.pointDis)then
+            local clampDir = Vector3.ClampMagnitude(dir, self.pointDis)
+            self.imgDirPoint.transform.position = self.startPos + clampDir
+        else
+            self.imgDirPoint.transform.position = Vector3(evt.position.x, evt.position.y, 0)
+        end
+        print(dir.normalized)
+    end
+end
