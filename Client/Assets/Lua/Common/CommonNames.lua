@@ -21,6 +21,12 @@ Xml = CS.System.Xml
 Random = CS.System.Random
 PEProtocol = CS.PEProtocol
 Screen = UnityEngine.Screen
+Camera = UnityEngine.Camera
+CharacterController = UnityEngine.CharacterController
+Animator = UnityEngine.Animator
+Input = UnityEngine.Input
+Time = UnityEngine.Time
+Mathf = UnityEngine.Mathf
 
 -- UI
 UI = UnityEngine.UI
@@ -73,6 +79,18 @@ ScreenSize = {
     stdWidth = 1334,
     stdHeight = 750,
     stdOptionDis = 90
+}
+
+-- 移动速度
+MoveSpeed = {
+    PlayerMoveSpeed = 8,
+    MonsterMoveSpeed = 4,
+    AccelerSpeed = 5
+}
+
+BlendState = {
+    Idle = 0,
+    Walk = 1
 }
 
 -- 判空

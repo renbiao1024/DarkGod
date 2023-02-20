@@ -17,7 +17,7 @@ require("UIWindow/LoginWnd")
 require("UIWindow/DynamicWnd")
 require("UIWindow/CreateWnd")
 require("UIWindow/MainCityWnd")
-
+require("Common/PlayerController")
 
 GameRoot = {}
 

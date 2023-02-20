@@ -1,7 +1,9 @@
 MainCitySys = {}
+MainCitySys.player = nil
 
 function MainCitySys:InitSys()
-
+    self.player = GameObject.Find("AssassinCity")
+    LuaComponent.Add(self.player, PlayerController)
 end
 
 function MainCitySys:EnterMainCity()
@@ -9,6 +11,6 @@ function MainCitySys:EnterMainCity()
         AudioSvc:PlayBGMusic(Audios.BGMainCity,true)
         MainCityWnd:InitWnd()
         MainCityWnd:SetWndState(UIs.MainCityWndUI, true)
-
+        self:InitSys()
     end)
 end
