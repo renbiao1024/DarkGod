@@ -26,18 +26,18 @@ function PlayerController.Start()
 end
 
 function PlayerController.Update()
-    local h = Input.GetAxis("Horizontal")
-    local v = Input.GetAxis("Vertical")
-    local _dir = Vector2(h,v).normalized
-    if(_dir ~= Vector2.zero)then
-        PlayerController.dir = _dir
-        PlayerController.isMove = true
-        PlayerController.targetBlend = 1
-    else
-        PlayerController.dir = Vector2.zero
-        PlayerController.isMove = false
-        PlayerController.targetBlend = 0
-    end
+    -- local h = Input.GetAxis("Horizontal")
+    -- local v = Input.GetAxis("Vertical")
+    -- local _dir = Vector2(h,v).normalized
+    -- if(_dir ~= Vector2.zero)then
+    --     PlayerController.dir = _dir
+    --     PlayerController.isMove = true
+    --     PlayerController.targetBlend = 1
+    -- else
+    --     PlayerController.dir = Vector2.zero
+    --     PlayerController.isMove = false
+    --     PlayerController.targetBlend = 0
+    -- end
 
     if(PlayerController.curBlend ~= PlayerController.targetBlend)then
         PlayerController.UpdateMixBlend()
@@ -51,7 +51,7 @@ function PlayerController.Update()
 end
 
 function PlayerController.SetDir()
-    local angle = Vector2.SignedAngle(PlayerController.dir, Vector2(0,1))
+    local angle = Vector2.SignedAngle(PlayerController.dir, Vector2(0,1)) + PlayerController.camTrans.eulerAngles.y
     local eulerAngles = Vector3(0, angle, 0)
     PlayerController.player.transform.localEulerAngles = eulerAngles
 end

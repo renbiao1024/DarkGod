@@ -14,3 +14,14 @@ function MainCitySys:EnterMainCity()
         self:InitSys()
     end)
 end
+
+function MainCitySys:SetMoveDir(dir)
+    if(dir == Vector2.zero)then
+        PlayerController.targetBlend = 0
+        PlayerController.isMove = false
+    else
+        PlayerController.targetBlend = 1
+        PlayerController.isMove = true
+    end
+    PlayerController.dir = dir
+end

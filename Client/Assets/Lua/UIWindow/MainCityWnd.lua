@@ -96,6 +96,7 @@ function MainCityWnd:RegisterEouchEvents()
     listener.onClickUp = function(evt)
         self.imgDirBg.transform.position = self.defaultPos
         self.imgDirPoint.transform.localPosition = Vector3.zero
+        MainCitySys:SetMoveDir(Vector2.zero)
     end
 
     listener.onDrag = function(evt)
@@ -107,6 +108,7 @@ function MainCityWnd:RegisterEouchEvents()
         else
             self.imgDirPoint.transform.position = Vector3(evt.position.x, evt.position.y, 0)
         end
-        print(dir.normalized)
+        local dir2D = Vector2(dir.x, dir.y)
+        MainCitySys:SetMoveDir(dir2D.normalized)
     end
 end
