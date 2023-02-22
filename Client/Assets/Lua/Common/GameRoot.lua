@@ -17,6 +17,7 @@ require("UIWindow/LoginWnd")
 require("UIWindow/DynamicWnd")
 require("UIWindow/CreateWnd")
 require("UIWindow/MainCityWnd")
+require("UIWindow/InfoWnd")
 require("Common/PlayerController")
 
 GameRoot = {}
@@ -46,6 +47,7 @@ function GameRoot:Init()
     LuaComponent.Add(UIs.DynamicWndUI, DynamicWnd)
     UIs.CreateWndUI = GameObject.Find("GameRoot/Canvas/CreateWnd")
     UIs.MainCityWndUI = GameObject.Find("GameRoot/Canvas/MainCityWnd")
+    UIs.InfoWndUI = GameObject.Find("GameRoot/Canvas/InfoWnd")
 
     LoadingWnd:InitWnd()
     DynamicWnd:InitWnd()

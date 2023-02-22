@@ -6,7 +6,7 @@ PlayerController.isMove = false
 PlayerController.ctrl = nil
 PlayerController.ani = nil
 PlayerController.dir = Vector2.zero
-PlayerController.targetBlend = 1
+PlayerController.targetBlend = 0
 PlayerController.curBlend = 0
 
 

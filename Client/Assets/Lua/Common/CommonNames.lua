@@ -51,7 +51,8 @@ UIs = {
     LoginWndUI = nil,
     DynamicWndUI = nil,
     CreateWndUI = nil,
-    MainCityWndUI = nil
+    MainCityWndUI = nil,
+    InfoWndUI = nil
 }
 
 -- 场景名称
@@ -66,7 +67,8 @@ Audios = {
     BGMainCity = "bgMainCity",
     UIClickBtn = "uiClickBtn",
     UILoginBtn = "uiLoginBtn",
-    UIExtenBtn = "UIExtenBtn"
+    UIExtenBtn = "uiExtenBtn",
+    UIOpenPage = "uiOpenPage"
 }
 
 -- ConfigName

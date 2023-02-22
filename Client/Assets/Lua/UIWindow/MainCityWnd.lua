@@ -10,12 +10,15 @@ MainCityWnd.txtExpPrg = nil
 MainCityWnd.menuState = true
 MainCityWnd.btnMenuBtn = nil
 MainCityWnd.menuAni = nil
-
+MainCityWnd.imgTouch = nil
 MainCityWnd.imgDirBg = nil
 MainCityWnd.imgDirPoint = nil
 MainCityWnd.pointDis = nil
 MainCityWnd.startPos = Vector3.zero
 MainCityWnd.defaultPos = Vector3.zero
+
+-- 主菜单里的btn
+MainCityWnd.headBth = nil
 
 function MainCityWnd:InitWnd()
     self.base.InitWnd(self)
@@ -28,17 +31,24 @@ function MainCityWnd:InitWnd()
     self.txtExpPrg = UIs.MainCityWndUI.transform:Find("BottomPin/txtExpPrg"):GetComponent(typeof(Text))
     self.btnMenuBtn = UIs.MainCityWndUI.transform:Find("RightBottomPin/MenuRoot/btnMenu"):GetComponent(typeof(Button))
     self.menuAni = UIs.MainCityWndUI.transform:Find("RightBottomPin/MenuRoot"):GetComponent(typeof(Animation))
+    self.imgTouch = UIs.MainCityWndUI.transform:Find("LeftBottomPin/imgTouch")
     self.imgDirBg = UIs.MainCityWndUI.transform:Find("LeftBottomPin/imgTouch/imgDirBg")
     self.imgDirPoint = UIs.MainCityWndUI.transform:Find("LeftBottomPin/imgTouch/imgDirBg/imgDirPoint")
 
     self.pointDis = Screen.height / ScreenSize.stdHeight * ScreenSize.stdOptionDis
     self.defaultPos = self.imgDirBg.transform.position
 
+    self.headBth = UIs.MainCityWndUI.transform:Find("LeftTopPin/btnHead"):GetComponent(typeof(Button))
+
     self.btnMenuBtn.onClick:AddListener(function()
         self:ClickMenuBtn()
     end)
 
-    self:RegisterEouchEvents()
+    self.headBth.onClick:AddListener(function()
+        self:ClickHeadBtn()
+    end)
+
+    self:RegisterTouchEvents()
     self:RefreshUI()
 end
 
@@ -85,8 +95,8 @@ function MainCityWnd:ClickMenuBtn()
     self.menuAni:Play(clip.name)
 end
 
-function MainCityWnd:RegisterEouchEvents()
-    local listener = UIs.MainCityWndUI:GetComponent(typeof(PEListener))
+function MainCityWnd:RegisterTouchEvents()
+    local listener = self.imgTouch:GetComponent(typeof(PEListener))
 
     listener.onClickDown = function(evt)
         self.startPos = Vector3(evt.position.x, evt.position.y, 0)
@@ -111,4 +121,10 @@ function MainCityWnd:RegisterEouchEvents()
         local dir2D = Vector2(dir.x, dir.y)
         MainCitySys:SetMoveDir(dir2D.normalized)
     end
+end
+
+function MainCityWnd:ClickHeadBtn()
+    AudioSvc:PlayUIAudio(Audios.UIOpenPage)
+    InfoWnd:SetWndState(UIs.InfoWndUI,true)
+    InfoWnd:InitWnd()
 end
