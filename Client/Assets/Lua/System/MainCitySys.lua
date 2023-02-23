@@ -6,6 +6,7 @@ function MainCitySys:InitSys()
     self.player = GameObject.Find("AssassinCity")
     LuaComponent.Add(self.player, PlayerController)
     self.charShowCamTrans = GameObject.FindGameObjectWithTag("CharShowCam").transform
+    self.charShowCamTrans.gameObject:SetActive(false)
 end
 
 function MainCitySys:EnterMainCity()
@@ -29,6 +30,7 @@ function MainCitySys:SetMoveDir(dir)
 end
 
 function MainCitySys:OpenInfoWnd()
-    self.charShowCamTrans.localPosition = self.player.transform.position + self.player.transform.forward * 3.8 + Vector3(0, 1.2, 0)
-    self.charShowCamTrans.localEulerAngles = Vector3(0, 180 + self.player.transform.localEulerAngles.y, 0)
+    self.charShowCamTrans.position = self.player.transform.position + self.player.transform.forward * 3.8 + Vector3(0, 1.2, 0)
+    self.charShowCamTrans.eulerAngles = Vector3(0, 180 + self.player.transform.localEulerAngles.y, 0)
+    self.charShowCamTrans.gameObject:SetActive(true)
 end

@@ -27,6 +27,7 @@ Animator = UnityEngine.Animator
 Input = UnityEngine.Input
 Time = UnityEngine.Time
 Mathf = UnityEngine.Mathf
+RectTransform = UnityEngine.RectTransform
 
 -- UI
 UI = UnityEngine.UI
@@ -35,6 +36,7 @@ Image = UI.Image
 Button = UI.Button
 InputField = UI.InputField
 GridLayoutGroup = UI.GridLayoutGroup
+RawImage = UI.RawImage
 
 -- 自定义类
 LuaComponent = CS.LuaComponent
