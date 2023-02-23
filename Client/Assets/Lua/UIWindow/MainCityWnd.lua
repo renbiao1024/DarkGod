@@ -125,6 +125,7 @@ end
 
 function MainCityWnd:ClickHeadBtn()
     AudioSvc:PlayUIAudio(Audios.UIOpenPage)
+    MainCitySys:OpenInfoWnd()
     InfoWnd:SetWndState(UIs.InfoWndUI,true)
     InfoWnd:InitWnd()
 end

@@ -1161,6 +1161,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1297294015}
     m_Modifications:
+    - target: {fileID: 1954535243286622, guid: e2fdc776d0a1f8f41ab2c994c74daf9f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1978034694924738, guid: e2fdc776d0a1f8f41ab2c994c74daf9f, type: 3}
       propertyPath: m_Name
       value: InfoWnd
@@ -1169,6 +1173,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114044165927709044, guid: e2fdc776d0a1f8f41ab2c994c74daf9f, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 8400000, guid: 1dedea217dc555446a173072607fe52e, type: 2}
     - target: {fileID: 224272743192927810, guid: e2fdc776d0a1f8f41ab2c994c74daf9f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
